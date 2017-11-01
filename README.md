@@ -34,7 +34,7 @@ Player One will always start game.
 * Example Input: Application will highlight Player One to indicate that it is their turn.
 * Example Output: Player One information will be highlighted in green.
 
-Application allows Player One to click roll button to roll die and application will show random number 1 through 6. A dice roll of 1 will end player's turn and score is nothing.
+Application allows Player One to click roll button to roll die and application will show random number 1 through 6. A dice roll of 1 will end player's turn and score is reset to 0.
 * Example Input: Player One clicks roll button and application randomly rolls/shows a 1.
 * Example Output: Player One rolls a 1 and ends turn.
 
