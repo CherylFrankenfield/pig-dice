@@ -41,7 +41,11 @@ $(document).ready(function() {
         $("#player-one-name").text(player1.playerName);
         $("#player-two-name").text(player2.playerName);
       });
-  });
+  }); // end of play button click
 
+  $("#roll-button").click(function(){
+    var roll = diceRoll();
+    $("#current-dice-roll").text(roll);
+  });
 
 });
