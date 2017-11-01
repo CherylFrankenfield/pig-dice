@@ -1,16 +1,21 @@
 
 //Back End
-function Player(playerName) {
+function Player(playerName, turnScore, totalScore, playerTurn) {
   this.playerName = playerName;
   this.turnScore;
   this.totalScore;
+  this.playerTurn;
 }
 
-function Game(player1, player2, diceRoll, totalGameScore) {
+function Game(player1, player2, totalGameScore) {
   this.player1 = player1;
   this.player2 = player2;
-  this.diceRoll;
   this.totalGameScore;
+}
+
+function Turn(currentRoll, totalRoll) {
+  this.currentRoll = currentRoll;
+  this.totalRoll = totalRoll;
 }
 
 var diceRoll = function() {
@@ -18,16 +23,17 @@ var diceRoll = function() {
   return roll;
 }
 
-// Player.prototype.setTurnScore = function() {
-//   if (this.diceRoll === 1) {
-//     this.turnScore = 0;
-//   } else { (index = 2; index <= 6; index++)
-//       if (this.diceroll === 2)
-//   }
-// });
+Player.prototype.setTurnScore = function(rollTally.currentRoll) {
+  if (rollTally.currentRoll === 1) {
+    this.turnScore = 0;
+  } else (rollTally.currentRoll >= 2) {
+    this.turnScore += rollTally.currentRoll;
+  }
+};
 
 var player1 = new Player()
 var player2 = new Player()
+var rollTally = new Turn()
 
 //Front End
 $(document).ready(function() {
@@ -44,8 +50,8 @@ $(document).ready(function() {
   }); // end of play button click
 
   $("#roll-button").click(function(){
-    var roll = diceRoll();
-    $("#current-dice-roll").text(roll);
+    rollTally.currentRoll = diceRoll();
+    $("#current-dice-roll").text(rollTally.currentRoll);
   });
 
 });
