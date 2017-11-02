@@ -18,10 +18,6 @@ var add = function(a,b) {
   return a + b;
 }
 
-// var condense = function() {
-//   rollArray.reduce(add, 0);
-// }
-
 var player1 = new Player()
 var player2 = new Player()
 
@@ -37,12 +33,20 @@ $(document).ready(function() {
     player2.name = $("input#player-two").val();
   }); // end of play button click
 
+  var switch = function() {
+    // if player1 === 1
+    //else player2 === 2
+  }
+
+
   $("#roll-button").click(function(){
     var diceTemp = diceRoll();
     $("#current-dice-roll").text(diceTemp);
       if (diceTemp <= 2) {
         rollArray.push(0);
-      } else if (diceTemp >= 2) {
+        $("#turn-score").text(rollArray.reduce(add, 0));
+        alert("Your Turn is Over!")
+      } else {
         rollArray.push(diceTemp);
       }
       return rollArray;
@@ -51,6 +55,7 @@ $(document).ready(function() {
 
   $("#hold-button").click(function() {
     $("#turn-score").text(rollArray.reduce(add, 0));
+
   });
 
 
