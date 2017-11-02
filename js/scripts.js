@@ -10,12 +10,17 @@ var diceRoll = function() {
   return roll;
 }
 
+var playerArray = [];
+var rollArray = [];
+
+
 var add = function(a,b) {
   return a + b;
 }
 
-var playerArray = [];
-var rollArray = [];
+// var condense = function() {
+//   rollArray.reduce(add, 0);
+// }
 
 var player1 = new Player()
 var player2 = new Player()
@@ -35,15 +40,19 @@ $(document).ready(function() {
   $("#roll-button").click(function(){
     var diceTemp = diceRoll();
     $("#current-dice-roll").text(diceTemp);
-
-    if (diceTemp <= 2) {
-      rollArray.push(0);
-    } else if (diceTemp >= 2) {
-      rollArray.push(diceTemp);
-    }
-    return rollArray;
-    console.log(rollArray);
-
+      if (diceTemp <= 2) {
+        rollArray.push(0);
+      } else if (diceTemp >= 2) {
+        rollArray.push(diceTemp);
+      }
+      return rollArray;
   });
+
+
+  $("#hold-button").click(function() {
+    $("#turn-score").text(rollArray.reduce(add, 0));
+  });
+
+
 
 });
