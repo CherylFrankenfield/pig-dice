@@ -1,22 +1,19 @@
 
 //Back End
-function Player(playerName, turnScore, totalScore) {
-  this.playerName = playerName;
-  this.turnScore = 0;
-  this.totalScore = 0;
-}
-
-function Game(player1, player2, totalGameScore) {
-  this.player1 = player1;
-  this.player2 = player2;
-  this.totalGameScore;
-  this.playerTurn = true;
+function Player(name, score) { //player object constructor
+  this.name = name;
+  this.score = 0;
 }
 
 var diceRoll = function() {
   var roll = Math.floor((Math.random() * 6) + 1);
   return roll;
 }
+
+var playerArray = [];
+var rollArray = [];
+
+
 
 var player1 = new Player()
 var player2 = new Player()
@@ -25,14 +22,12 @@ var player2 = new Player()
 $(document).ready(function() {
   $("form#player-form").submit(function(event) {
       event.preventDefault();
-
-      player1.playerName = $("input#player-one").val();
-      player2.playerName = $("input#player-two").val();
-
-      $("#button-start-game").click(function() {
-        $("#player-one-name").text(player1.playerName);
-        $("#player-two-name").text(player2.playerName);
-      });
+    $("#button-start-game").click(function() {
+      $("#player-one-name").text(player1.name);
+      $("#player-two-name").text(player2.name);
+    });
+    player1.name = $("input#player-one").val();
+    player2.name = $("input#player-two").val();
   }); // end of play button click
 
   $("#roll-button").click(function(){
@@ -40,14 +35,15 @@ $(document).ready(function() {
     $("#current-dice-roll").text(diceTemp);
     var result = [];
 
-    if (diceTemp === 1) {
-      player1.turnScore = 0;
-    } else {
+    if (diceTemp <= 2) {
+      result.push(player1.turnScore);
+      alert("Your turn is over!");
+    } else if (diceTemp >= 2) {
       player1.turnScore += diceTemp;
       result.push(player1.turnScore += diceTemp);
     }
     return result;
   });
-  $("#player-one-turn-score").text.val(); 
+  $("#player-one-turn-score").text.val();
 
 });

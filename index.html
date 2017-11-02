@@ -10,7 +10,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to The Muppets Pig Dice Game</h1>
+      <div class="jumbotron">
+        <h1>Piggy Dice</h1>
+      </div>
       <div class="row" id="start-game-display">
         <div class="col-md-3">
           <form id="player-form">
@@ -23,38 +25,35 @@
         </div>
       </div>
 <!-- Dice Roll Area -->
+      <div class="row" id="roll-hold-buttons"> <!--Button area -->
+          <button type="button" class="btn btn-success" id="roll-button">Roll</button>
+          <button type="button" class="btn btn-danger" id="hold-button">Hold</button>
+      </div>
       <div class="row" id="dice-roll-display">
         <h2>Current Dice Roll: <span id="current-dice-roll"></span></h2>
+        <h2>Turn Score: <span id="turn-score"></span></h2>
       </div>
 <!--Player One card -->
       <div class="row">
-        <div class="col-md-5" id="card-player-one">
+        <div class="col-md-6" id="card-player-one">
           <div class="card" style="width: 20rem;">
             <div class="card-body">
-              <h2 class="card-title">Player 1:<span id="player-one-name"></span></h2>
-              <h3>Turn Score: <span id="player-one-turn-score"></span></h3>
+              <h2 class="card-title">Player 1: <span id="player-one-name"></span></h2>
               <h3>Total Score: <span id="player-one-total-score"></span></h3>
             </div>
-        </div>
-        </div>
-<!--Button area -->
-        <div class="col-md-2">
-          <button type="button" class="btn btn-success" id="roll-button">Roll</button>
-          <button type="button" class="btn btn-danger" id="hold-button">Hold</button>
+          </div>
         </div>
 
 <!--Player Two card -->
-        <div class="col-md-5" id="card-player-two">
+        <div class="col-md-6" id="card-player-two">
           <div class="card" style="width: 20rem;">
             <div class="card-body">
               <h2 class="card-title">Player 2: <span id="player-two-name"></span></h2>
-              <h3>Turn Score: <span id="player-two-turn-score"></span></h3>
               <h3>Total Score: <span id="player-two-total-score"></span></h3>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </body>
 </html>
