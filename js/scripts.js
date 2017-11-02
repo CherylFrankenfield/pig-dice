@@ -10,10 +10,12 @@ var diceRoll = function() {
   return roll;
 }
 
+var add = function(a,b) {
+  return a + b;
+}
+
 var playerArray = [];
 var rollArray = [];
-
-
 
 var player1 = new Player()
 var player2 = new Player()
@@ -33,17 +35,15 @@ $(document).ready(function() {
   $("#roll-button").click(function(){
     var diceTemp = diceRoll();
     $("#current-dice-roll").text(diceTemp);
-    var result = [];
 
     if (diceTemp <= 2) {
-      result.push(player1.turnScore);
-      alert("Your turn is over!");
+      rollArray.push(0);
     } else if (diceTemp >= 2) {
-      player1.turnScore += diceTemp;
-      result.push(player1.turnScore += diceTemp);
+      rollArray.push(diceTemp);
     }
-    return result;
+    return rollArray;
+    console.log(rollArray);
+
   });
-  $("#player-one-turn-score").text.val();
 
 });
